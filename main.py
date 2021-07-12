@@ -19,7 +19,8 @@ class Bot:
         # Application/User ID
         self.id = "591702182806683658"
         # Authorization token
-        self.token = "NTkxNzAyMTgyODA2NjgzNjU4.XQ0nmQ.QoO4QnxZaYN-dNyQQCCVcmLPvaY"
+        with open("token.txt", 'r') as f:
+            self.token = f.readline()
 
         # REST endpoint
         self.rest_url = "https://discord.com/api/v9"
@@ -378,6 +379,7 @@ class Bot:
                                              "ssrc": self.ssrc}})
         await self.vws.send(payload)
 
+    # FIXME: Audio packets aren't playing
     async def play_wav(self):
         """
         Plays .WAV file over active voice connection.
