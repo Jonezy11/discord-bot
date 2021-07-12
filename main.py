@@ -103,7 +103,7 @@ class Bot:
         i = 0
         while True:
             # Create 'Heartbeat' payload
-            payload = json.dumps({"op": 1, "s": i})
+            payload = json.dumps({"op": 1, "s": i, "d": {}, "t": None})
             # Establish Future object to receive ACK
             self.heartbeat_ack = self.loop.create_future()
             # Send payload over WebSocket
